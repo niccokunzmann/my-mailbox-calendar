@@ -24,15 +24,16 @@ def iter_events(calendar_content):
         if is_event(event):
             yield event
 
+# changing the text for a variable here, also change it in the app.json
 @click.command()
 @click.option("--port", envvar="PORT", type=int, default=5000, help="Port to rin the web server on.")
 @click.argument("imap_host", envvar="IMAP_HOST", type=str)
 @click.argument("imap_user", envvar="IMAP_USER", type=str)
 @click.argument("imap_password", envvar="IMAP_PASSWORD", type=str)
-@click.option('--ssl/--no-ssl', default=True, help="Whether to connect to the IMAP server using SSL encryption. Encryption is used by default.")
+@click.option('--ssl/--no-ssl', envvar="IMAP_SSL", default=True, help="Whether to connect to the IMAP server using SSL encryption. Encryption is used by default.")
 @click.option('--debug', '-d', envvar="FLASK_DEBUG", is_flag=True, help="Enable debugging on the server.")
 @click.option('--check/--no-check', envvar="IMAP_CHECK", is_flag=True, help="Check whether the app can connect to the IMAP server with the given credentials.")
-@click.option('--open-web-calendar', envvar="OPEN_WEB_CALENDAR", default="https://open-web-calendar.herokuapp.com", help="The url of the open web calendar server to display an html page containing the calendar.")
+@click.option('--open-web-calendar', envvar="OPEN_WEB_CALENDAR_URL", default="https://open-web-calendar.herokuapp.com", help="The url of the open web calendar server to display an html page containing the calendar.")
 @click.option('--https', envvar="HTTPS", default=False, help="Whether the server uses https.")
 def start(port, imap_host, imap_user, imap_password, ssl, debug, check, open_web_calendar, https):
     """Download the messages from a server and create the ICS files.

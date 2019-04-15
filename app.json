@@ -1,0 +1,58 @@
+{
+  "name": "My Mailbox Calendar",
+  "description": "Manage a web calendar through email invitations.",
+  "repository": "https://github.com/niccokunzmann/my-mailbox-calendar",
+  "website": "https://github.com/niccokunzmann/my-mailbox-calendar",
+  "success_url": "/",
+  "env": {
+    "IMAP_HOST": {
+      "description": "the IMAP server to connect to. Examples: \"imap.gmail.com\", \"imap.gmail.com:993\"",
+      "value": "imap.gmail.com",
+      "required": true
+    },
+    "IMAP_USER": {
+      "description": "the username on the server for login. Example: \"my.mailbox.calendar@gmail.com\"",
+      "value": "my.mailbox.calendar@gmail.com",
+      "required": true
+    },
+    "IMAP_PASSWORD": {
+      "description": "the password for the IMAP_USER",
+      "value": "",
+      "required": true
+    },
+    "IMAP_SSL": {
+      "description": "Whether to connect to the IMAP server using SSL encryption. Encryption is used by default.",
+      "value": "true",
+      "required": false
+    },
+    "FLASK_DEBUG": {
+      "description": "",
+      "value": "Enable debugging on the server.",
+      "required": false
+    },
+    "IMAP_CHECK": {
+      "description": "Check whether the app can connect to the IMAP server with the given credentials.",
+      "value": "true",
+      "required": false
+    },
+    "OPEN_WEB_CALENDAR_URL": {
+      "description": "The url of the open web calendar server to display an html page containing the calendar.",
+      "value": "https://open-web-calendar.herokuapp.com",
+      "required": false
+    },
+    "HTTPS": {
+      "description": "Whether the server uses https.",
+      "value": "true",
+      "required": true
+    }
+  },
+  "image": "heroku/python",
+  "keywords": [
+    "calendar",
+    "web",
+    "ical",
+    "email",
+    "open-source"
+  ]
+}
+
