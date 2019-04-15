@@ -130,6 +130,10 @@ def get_app(port, imap_host, imap_user, imap_password, ssl, debug, check, open_w
         )
         return redirect(url)
         
+    @app.route("/")
+    def index():
+        return redirect("https://github.com/niccokunzmann/my-mailbox-calendar#readme")
+        
     if check:
         for message in get_messages("startup"): # check if configured to work later
             pass
