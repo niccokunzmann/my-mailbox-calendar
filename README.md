@@ -18,7 +18,4 @@ There is a free plan.
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
-Heroku uses [gunicorn](http://flask.pocoo.org/docs/dev/deploying/wsgi-standalone/#gunicorn)
-to run the server, see the [Procfile](Procfile).
-
 
