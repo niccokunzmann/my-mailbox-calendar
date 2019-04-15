@@ -25,18 +25,19 @@ def iter_events(calendar_content):
             yield event
 
 # changing the text for a variable here, also change it in the app.json
-@click.command()
+@click.command(context_settings={"ignore_unknown_options":True})
 @click.option("--port", envvar="PORT", type=int, default=5000, help="Port to run the web server on.")
 @click.argument("imap_host", envvar="IMAP_HOST", type=str)
 @click.argument("imap_user", envvar="IMAP_USER", type=str)
 @click.argument("imap_password", envvar="IMAP_PASSWORD", type=str)
+@click.argument("args", nargs=-1) # see https://click.palletsprojects.com/en/7.x/arguments/#variadic-arguments
 @click.option('--ssl/--no-ssl', envvar="IMAP_SSL", default=True, help="Whether to connect to the IMAP server using SSL encryption. Encryption is used by default.")
 @click.option('--debug', '-d', envvar="FLASK_DEBUG", is_flag=True, help="Enable debugging on the server.")
 @click.option('--check/--no-check', envvar="IMAP_CHECK", is_flag=True, help="Check whether the app can connect to the IMAP server with the given credentials.")
 @click.option('--open-web-calendar', envvar="OPEN_WEB_CALENDAR_URL", default="https://open-web-calendar.herokuapp.com", help="The url of the open web calendar server to display an html page containing the calendar.")
 @click.option('--https', envvar="HTTPS", default=False, help="Whether the server uses https.")
-@click.option('--start/--no-start', envvar="start", default=True, help="Whether the app should be started.")
-def get_app(port, imap_host, imap_user, imap_password, ssl, debug, check, open_web_calendar, https, start):
+@click.option('--start/--no-start', envvar="START", default=True, help="Whether the app should be started.")
+def get_app(port, imap_host, imap_user, imap_password, ssl, debug, check, open_web_calendar, https, start, args):
     """Download the messages from a server and create the ICS files.
     
     These arguments can be passed as parameters to the script or as
@@ -138,3 +139,4 @@ def get_app(port, imap_host, imap_user, imap_password, ssl, debug, check, open_w
 
 
 app = get_app()
+
