@@ -2,7 +2,7 @@ My Mailbox Calendar
 ===================
 
 Create an online calendar by inviting this application to your events:
-1. Invite the mailbox calendar to your events, replacing TEST with a
+1. Invite the mailbox calendar to your events, replacing "test" with a
    name of your liking:
    [my.mailbox.calendar+test@gmail.com](mailto:my.mailbox.calendar+test@gmail.com).
 2. View that the event is actually being processed. Here, also replace
