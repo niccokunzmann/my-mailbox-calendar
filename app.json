@@ -39,11 +39,6 @@
       "description": "The url of the open web calendar server to display an html page containing the calendar.",
       "value": "https://open-web-calendar.herokuapp.com",
       "required": false
-    },
-    "HTTPS": {
-      "description": "Whether the server uses https.",
-      "value": "true",
-      "required": true
     }
   },
   "image": "heroku/python",

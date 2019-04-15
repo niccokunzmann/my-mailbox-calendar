@@ -11,4 +11,14 @@ Create an online calendar by inviting this application to your events:
 3. Subscribe to the calendar with any application using ICS.  
    https://my.mailbox.calendar.quelltext.eu/TEST.ics
 
+## Deployment
+
+You can deploy the app using Heroku.
+There is a free plan.
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
+Heroku uses [gunicorn](http://flask.pocoo.org/docs/dev/deploying/wsgi-standalone/#gunicorn)
+to run the server, see the [Procfile](Procfile).
+
 

@@ -131,9 +131,11 @@ def start(port, imap_host, imap_user, imap_password, ssl, debug, check, open_web
     if check:
         for message in get_messages("startup"): # check if configured to work later
             pass
-    app.run(debug=debug, host="0.0.0.0", port=port)
+    def go():
+        app.run(debug=debug, host="0.0.0.0", port=port)
+    app.go = go
 
 
-
-if __name__ == '__main__':
-    start()
+app = start()
+if __name__ == "__main__":
+    app.go()
