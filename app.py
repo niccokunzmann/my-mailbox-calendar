@@ -26,7 +26,7 @@ def iter_events(calendar_content):
 
 # changing the text for a variable here, also change it in the app.json
 @click.command()
-@click.option("--port", envvar="PORT", type=int, default=5000, help="Port to rin the web server on.")
+@click.option("--port", envvar="PORT", type=int, default=5000, help="Port to run the web server on.")
 @click.argument("imap_host", envvar="IMAP_HOST", type=str)
 @click.argument("imap_user", envvar="IMAP_USER", type=str)
 @click.argument("imap_password", envvar="IMAP_PASSWORD", type=str)
@@ -35,7 +35,8 @@ def iter_events(calendar_content):
 @click.option('--check/--no-check', envvar="IMAP_CHECK", is_flag=True, help="Check whether the app can connect to the IMAP server with the given credentials.")
 @click.option('--open-web-calendar', envvar="OPEN_WEB_CALENDAR_URL", default="https://open-web-calendar.herokuapp.com", help="The url of the open web calendar server to display an html page containing the calendar.")
 @click.option('--https', envvar="HTTPS", default=False, help="Whether the server uses https.")
-def start(port, imap_host, imap_user, imap_password, ssl, debug, check, open_web_calendar, https):
+@click.option('--start/--no-start', envvar="start", default=True, help="Whether the app should be started.")
+def get_app(port, imap_host, imap_user, imap_password, ssl, debug, check, open_web_calendar, https, start):
     """Download the messages from a server and create the ICS files.
     
     These arguments can be passed as parameters to the script or as
@@ -131,11 +132,9 @@ def start(port, imap_host, imap_user, imap_password, ssl, debug, check, open_web
     if check:
         for message in get_messages("startup"): # check if configured to work later
             pass
-    def go():
+    if start:
         app.run(debug=debug, host="0.0.0.0", port=port)
-    app.go = go
+    return app
 
 
-app = start()
-if __name__ == "__main__":
-    app.go()
+app = get_app()
