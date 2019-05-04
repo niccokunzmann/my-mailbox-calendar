@@ -17,26 +17,37 @@ def iter_events(calendar_content):
         if is_event(event):
             yield event
 
-
 class MailboxCalendar:
     """A calendar which is nutured by emails."""
 
     def __init__(self):
         """Create a mailbox calendar object."""
         self.events = {}
+        
+    @staticmethod
+    def _get_last_modified(event):
+        """Return the last modification date of an event."""
+        date = event.get("LAST-MODIFIED")
+        if date is not None:
+            return date.dt
+        return None
 
     def add_event(self, event):
         """Add an event taking the time into account it was changed."""
         uid = event.get("UID")
         other = self.events.get(uid, None)
         if other:
-            event_last_modified = event.get("LAST-MODIFIED")
-            other_last_modified = other.get("LAST-MODIFIED")
-            if event_last_modified and other_last_modified and \
-                (   event_last_modified.dt > other_last_modified.dt or
-                    event_last_modified.dt == other_last_modified.dt and
-                    event.get(METHOD) in METHODS_TO_DELETE):
-                self.events[uid] = event
+            for make_comparable in [
+                    self._get_last_modified,
+                    lambda event: event.get("SEQUENCE")]:
+                event_age = make_comparable(event)
+                other_age = make_comparable(other)
+                if event_age is None or other_age is None:
+                    continue
+                if event_age > other_age or \
+                        event_age == other_age and \
+                        event.get(METHOD) in METHODS_TO_DELETE:
+                    self.events[uid] = event
         else:
             self.events[uid] = event
 

@@ -1,15 +1,23 @@
 import pytest
 
 @pytest.mark.parametrize("email_names,attributes", [
-    ( ["thunderbird_2", "thunderbird_2_edited"], {
-      "summary": "Edited Event", "description":"now has a description"
-    }),
-    ( ["thunderbird_2_edited", "thunderbird_2"], {
-      "summary": "Edited Event", "description":"now has a description"
-    }),
+    # Thunderbird
     ( ["thunderbird_1"], {
       "summary": "Event", "description":None
     }),
+    ( ["thunderbird_2", "thunderbird_2_edited"], {
+      "summary": "Edited Event", "description":"now has a description"
+    }),
+    ( ["thunderbird_2", "thunderbird_2_edited"], {
+      "summary": "Edited Event", "description":"now has a description"
+    }),
+    # Lotus Notes
+    ( ["lotus_1"], {
+      "summary": "test"}),
+    ( ["lotus_1", "lotus_1_edited"], {
+      "summary": "test - edited"}),
+    ( ["lotus_1_edited", "lotus_1"], {
+      "summary": "test - edited"}),
 ])
 def test_one_email(emails, email_names, calendar, attributes):
     for email_name in email_names:
@@ -21,8 +29,12 @@ def test_one_email(emails, email_names, calendar, attributes):
         assert first_event.get(attribute) == value
 
 @pytest.mark.parametrize("email_names", [
+  # no input
   [],
-  ["thunderbird_1", "thunderbird_1_canceled"]
+  # thunderbird
+  ["thunderbird_1", "thunderbird_1_canceled"],
+  # lotus notes
+  ["lotus_2", "lotus_2_canceled"],
 ])
 def test_email_cancelled(emails, email_names, calendar):
     for email_name in email_names:
