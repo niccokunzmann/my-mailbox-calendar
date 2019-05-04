@@ -1,7 +1,6 @@
 import icalendar
 import cgi
 
-MIME_TYPE_CALENDAR = "text/calendar"
 METHOD = "X-METHOD"
 METHODS_TO_ADD = ["REQUEST"]
 METHODS_TO_DELETE = ["CANCEL"]
@@ -19,6 +18,8 @@ def iter_events(calendar_content):
 
 class MailboxCalendar:
     """A calendar which is nutured by emails."""
+    
+    mime_type = "text/calendar"
 
     def __init__(self):
         """Create a mailbox calendar object."""
@@ -61,12 +62,11 @@ class MailboxCalendar:
             # parse header, see https://stackoverflow.com/a/36627725
             mime_type, arguments = cgi.parse_header(content_type)
             method = arguments.get("method", None)
-            if mime_type != MIME_TYPE_CALENDAR or part.is_multipart():
+            if mime_type != self.mime_type or part.is_multipart():
                 continue
             for event in iter_events(part.get_payload()):
                 event.add(METHOD, method)
                 self.add_event(event)
-
 
     def list_events(self):
         """Return a list of all events so far received."""
@@ -75,4 +75,13 @@ class MailboxCalendar:
             method = event.get(METHOD)
             if method in METHODS_TO_ADD:
                 events.append(event)
+            else:
+                assert method in METHODS_TO_DELETE, "Invalid method {}".format(method)
         return events
+
+    def as_icalendar(self):
+        calendar = icalendar.Calendar()
+        for event in self.list_events():
+            calendar.add_component(event)
+        return calendar
+

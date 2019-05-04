@@ -5,24 +5,7 @@ import click
 from pprint import pprint
 import email
 from flask import Flask, Response, request, redirect
-import icalendar
-import cgi
-
-MIME_TYPE_CALENDAR = "text/calendar"
-METHOD = "X-METHOD"
-METHODS_TO_ADD = ["REQUEST"]
-METHODS_TO_DELETE = ["CANCEL"]
-
-def is_event(component):
-    """Return whether a component is a calendar event."""
-    return isinstance(component, icalendar.cal.Event)
-
-def iter_events(calendar_content):
-    """Iterate over all the events of a calendar."""
-    calendar = icalendar.Calendar.from_ical(calendar_content)
-    for event in calendar.walk():
-        if is_event(event):
-            yield event
+import mailboxcalendar
 
 # changing the text for a variable here, also change it in the app.json
 @click.command(context_settings={"ignore_unknown_options":True})
@@ -79,44 +62,18 @@ def get_app(port, imap_host, imap_user, imap_password, ssl, debug, check, open_w
     
     @app.route("/<calendar_name>.ics")
     def get_ical_calendar(calendar_name):
-        events = {}
-        def add_event(event):
-            """Add an event taking the time into account it was changed."""
-            uid = event.get("UID")
-            other = events.get(uid, None)
-            if other:
-                event_last_modified = event.get("LAST-MODIFIED")
-                other_last_modified = other.get("LAST-MODIFIED")
-                if event_last_modified and other_last_modified and \
-                    (   event_last_modified.dt > other_last_modified.dt or
-                        event_last_modified.dt == other_last_modified.dt and
-                        event.get(METHOD) in METHODS_TO_DELETE):
-                    events[uid] = event
-            else:
-                events[uid] = event
+        calendar = mailboxcalendar.MailboxCalendar()
         for message in get_messages(calendar_name):
-            for part in message.walk():
-                content_type = part.get("Content-Type", "")
-                # parse header, see https://stackoverflow.com/a/36627725
-                mime_type, arguments = cgi.parse_header(content_type)
-                method = arguments.get("method", None)
-                if mime_type != MIME_TYPE_CALENDAR or part.is_multipart():
-                    continue
-                for event in iter_events(part.get_payload()):
-                    event.add(METHOD, method)
-                    add_event(event)
-        calendar = icalendar.Calendar()
-        for event in events.values():
-            method = event.get(METHOD)
-            if method in METHODS_TO_ADD:
-                calendar.add_component(event)
-            else:
-                assert method in METHODS_TO_DELETE, "Invalid method {}".format(method)
-        calendar.add("CN", calendar_name)
-        response = Response(calendar.to_ical(), mimetype=MIME_TYPE_CALENDAR)
+            calendar.receive(message)
+        icalendar = calendar.as_icalendar()
+        icalendar.add("CN", calendar_name)
+        response = Response(
+            icalendar.to_ical(),
+            mimetype=calendar.mime_type)
         response.headers['Access-Control-Allow-Origin'] = '*'
         # see https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSMissingAllowHeaderFromPreflight
-        response.headers['Access-Control-Allow-Headers'] = request.headers.get("Access-Control-Request-Headers")
+        response.headers['Access-Control-Allow-Headers'] = \
+            request.headers.get("Access-Control-Request-Headers")
         return response
     
     
