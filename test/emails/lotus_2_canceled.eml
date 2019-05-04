@@ -1,0 +1,411 @@
+Delivered-To: my.mailbox.calendar+notes@gmail.com
+Received: by 2002:a9d:6305:0:0:0:0:0 with SMTP id q5csp684339otk;
+        Sat, 4 May 2019 09:00:41 -0700 (PDT)
+X-Google-Smtp-Source: APXvYqzAIjwWovKCdogqGmbbxmmB09J9aw37D6as/GnlZwc1fAfFUmCe08jZ+DMwiOZPTlYMOgbG
+X-Received: by 2002:a50:cdd4:: with SMTP id h20mr15739162edj.114.1556985641345;
+        Sat, 04 May 2019 09:00:41 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1556985641; cv=none;
+        d=google.com; s=arc-20160816;
+        b=CvjKSbzVlebGsCXpWnKWb62FnIcQZ/QjgS53UMh+Tc7nged+N5JdhkUsW4soNnj7tO
+         GnRmMMbLpga0meHFo34f+3TLXj/kOMfPxmHrA8B7NY7EJmBkKtjs/5jzeijsebPvRsyC
+         KL8wkjuMBJd6LUjde3N9E17RTzCZ3ybqXqG3sIlaozFA0jyofpAtCMrRp06RpNK+Y2uD
+         wcWfg/hO+mEs+mVhPGiBBkP0/AoTad4mp36eFwqnsIJb1LouC6fLyz5R7eIyz0WO8kSE
+         PjBsURrVU8tBDaGbcniQolig00Dbw+f+o0jgbBABReEAuXyoIEDV0m2rX/uOiyJgoAVZ
+         5Jvw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=date:message-id:mime-version:subject:to:from;
+        bh=2HKNn5VzNDAMjWd0dMrnyP4HEhsHUO/UaEOcYrx1gyU=;
+        b=h0TG2Ek07Z1+ARnaKrWNHmYs9r674fV+JjnYQG1sOVoO/NCUp0RnJBgvh4mZ7rNbFV
+         00cwG4XDTTezdces+hPGeEn7RG7k47pPScZ3ed24cIs6cHRkQ9BtVHCQqWeNYdM758DR
+         ve85Gf66qN38fzGi3q4GidW4TLdYleEFQYCgjjzL7a/PdEGQPti9WXIyRyQaVrneZxVb
+         H6KmlL9lSY87eLGlWfgyVTLJ+Stt+nKVH2ed4pxvOYq8vW+miT/772Mg3CC4GeeioM3s
+         KSACClOKde296OlGqOlnzpuIZbvPTH7gGmhQKe20qrOAtyx1rIGWhBruBcyaTbfpxzwx
+         v3Bw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=pass (google.com: best guess record for domain of aksdlajsld.aksdlajsld@wi.uni-potsdam.de designates 141.89.68.1 as permitted sender) smtp.mailfrom=aksdlajsld.aksdlajsld@wi.uni-potsdam.de
+Return-Path: <aksdlajsld.aksdlajsld@wi.uni-potsdam.de>
+Received: from cl-mail.uni-potsdam.de (cl-mail.rz.uni-potsdam.de. [141.89.68.1])
+        by mx.google.com with ESMTPS id z5si869353ejn.282.2019.05.04.09.00.41
+        for <my.mailbox.calendar+notes@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+        Sat, 04 May 2019 09:00:41 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of aksdlajsld.aksdlajsld@wi.uni-potsdam.de designates 141.89.68.1 as permitted sender) client-ip=141.89.68.1;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: best guess record for domain of aksdlajsld.aksdlajsld@wi.uni-potsdam.de designates 141.89.68.1 as permitted sender) smtp.mailfrom=aksdlajsld.aksdlajsld@wi.uni-potsdam.de
+Received: from mailrelay.rz.uni-potsdam.de (n-mailrelay-01-ucs.rz.uni-potsdam.de [10.9.11.249])
+	by cl-mail.uni-potsdam.de (8.15.2/8.15.2) with ESMTP id x44G0eO1010753
+	for <my.mailbox.calendar+notes@gmail.com>; Sat, 4 May 2019 18:00:40 +0200 (CEST)
+Received: from [141.89.39.58] (helo=hermes.wi.uni-potsdam.de)
+	by mailrelay.rz.uni-potsdam.de with esmtps (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.86_2)
+	(envelope-from <aksdlajsld.aksdlajsld@wi.uni-potsdam.de>)
+	id 1hMx5c-0006O0-Pt
+	for my.mailbox.calendar+notes@gmail.com; Sat, 04 May 2019 18:00:40 +0200
+X-Quarantine-ID: <KK2q94qtO5qd>
+X-Virus-Scanned: Debian amavisd-new at hermes.wi.uni-potsdam.de
+X-Spam-Flag: NO
+X-Spam-Score: 1.1
+X-Spam-Level: *
+X-Spam-Status: No, score=1.1 tagged_above=-9999 required=4.31
+	tests=[BAYES_00=-1.9, DIRECT_SPF_NONE=1, HTML_MESSAGE=0.001,
+	SPF_NONE=0.0001, TO_NO_BRKTS_HTML_IMG=1.999]
+	autolearn=no autolearn_force=no
+Received: from wi.uni-potsdam.de (galaxy.wi.uni-potsdam.de [141.89.39.10])
+	by hermes.wi.uni-potsdam.de (Postfix) with ESMTPS id 32113ECD
+	for <my.mailbox.calendar+notes@gmail.com>; Sat,  4 May 2019 18:00:40 +0200 (CEST)
+X-Notes-Item: =?UTF-8?B?Q2hpbGRfT3V0Z29pbmdfMDA1N0YyMEJbZ2FsYXh5XSBieSBlY2xpcHNlIG9u?=
+ =?UTF-8?B?IEtpcnN0aW4gSGVpZGxlcihSZWxlYXNlIDkuMC4xRVhUfFNlcHRlbWJlcg==?=
+ =?UTF-8?B?IDE1LCAyMDE1KSBhdCAwNC4wNS4yMDE5IDE4OjAwOjIw?=,
+	=?UTF-8?B?T0EoQ2FuY2VsKVtnYWxheHldIGJ5IGVjbGlwc2Ugb24gS2lyc3Rpbg==?=
+ =?UTF-8?B?IEhlaWRsZXIoUmVsZWFzZSA5LjAuMUVYVHxTZXB0ZW1iZXIgMTUsIDIwMTU=?=
+ =?UTF-8?B?KSBhdCAwNC4wNS4yMDE5IDE4OjAwOjIw?=,
+	=?UTF-8?B?Q1MgTm90aWNlIGNvbnZlcnRlZCB0byBpQ2FsZW5kYXIgZm9ybWF0Ww==?=
+ =?UTF-8?B?Z2FsYXh5XSBieSBlY2xpcHNlIG9uIEtpcnN0aW4gSGVpZGxlcihSZWxlYXNl?=
+ =?UTF-8?B?IDkuMC4xRVhUfFNlcHRlbWJlciAxNSwgMjAxNSkgYXQgMDQuMDUuMjAxOQ==?=
+ =?UTF-8?B?IDE4OjAwOjIz?=;
+ type=501; flags=0; name=$CSTrack
+From: aksdlajsld.aksdlajsld@wi.uni-potsdam.de
+X-Notes-Item: CN=aksdlajsld aksdlajsld/O=lswi;
+ name=AltChair
+X-Notes-Item: CN=aksdlajsld aksdlajsld/O=lswi;
+ name=$AltPrincipal
+X-Notes-Item: 1;
+ name=$SMTPKeepNotesItems
+To: my.mailbox.calendar+notes@gmail.com
+X-Notes-Item: 1;
+ name=$PublicAccess
+X-Notes-Item: Sat, 4 May 2019 20:00:00 +0200;
+ type=400; name=$NoPurge
+X-Notes-Item: de;
+ name=$FromPreferredLanguage
+X-Notes-Item: ;
+ name=Location
+X-Notes-Item: ;
+ name=OnlineMeeting
+X-Notes-Item: my.mailbox.calendar+notes@gmail.com;
+ flags=44; name=RequiredAttendees
+X-Notes-Item: my.mailbox.calendar+notes@gmail.com;
+ flags=44; name=INetRequiredNames
+X-Notes-Item: my.mailbox.calendar+notes@gmail.com;
+ flags=44; name=AltRequiredNames
+X-Notes-Item: .;
+ flags=44; name=StorageRequiredNames
+Subject: Cancelled: test 2
+MIME-Version: 1.0
+X-Notes-Item: Memo;
+ name=Form
+X-Notes-Item: 1;
+ name=$NoteContainsIcal
+X-Notes-Item: .;
+ type=501; name=$StorageTo
+Message-ID: <OF36BC6780.822A87B1-ONC12583F0.0057F357-C12583F0.0057ED57@wi.uni-potsdam.de>
+Date: Sat, 4 May 2019 18:00:24 +0200
+X-Notes-Item: 0;
+ name=Encrypt
+X-Notes-Item: CN=galaxy/O=lswi;
+ type=501; flags=44; name=$UpdatedBy
+X-Notes-Item: CN=aksdlajsld aksdlajsld/O=lswi;
+ name=$OnBehalfOf
+X-Notes-Item: wi.uni-potsdam.de;
+ name=FromDomain
+X-Notes-Item: 25;
+ type=300; name=$Hops
+X-Notes-Item: 1;
+ name=$NoteHasNativeMIME
+X-Notes-Item: CN=aksdlajsld aksdlajsld/O=lswi;
+ name=OriginalFrom
+X-MIMETrack: Serialize by Router on galaxy/lswi(Release 10.0.1|November 29, 2018) at
+ 04.05.2019 18:00:39,
+	Serialize complete at 04.05.2019 18:00:39
+Content-Type: multipart/mixed; boundary="=_mixed D7531CD80B5DE05CC12583F00057F20B_="
+X-Miltered: at n-mail-2 with ID 5CCDB728.002 by Joe's j-chkmail (http : // j-chkmail dot ensmp dot fr)!
+X-j-chkmail-Enveloppe: 5CCDB728.002 from n-mailrelay-01-ucs.rz.uni-potsdam.de/n-mailrelay-01-ucs.rz.uni-potsdam.de/10.9.11.249/mailrelay.rz.uni-potsdam.de/<aksdlajsld.aksdlajsld@wi.uni-potsdam.de>
+X-j-chkmail-Score: MSGID : 5CCDB728.002 on cl-mail.uni-potsdam.de : j-chkmail score : XX : R=. U=. O=#### B=0.000 -> S=0.332
+X-j-chkmail-Status: Unsure
+
+This is a multipart message in MIME format.
+--=_mixed D7531CD80B5DE05CC12583F00057F20B_=
+Content-Type: multipart/related; boundary="=_related D7531CD80B5DE05CC12583F00057F20B_="
+
+
+--=_related D7531CD80B5DE05CC12583F00057F20B_=
+Content-Type: multipart/alternative; boundary="=_alternative D7531CD80B5DE05CC12583F00057F20B_="
+
+
+--=_alternative D7531CD80B5DE05CC12583F00057F20B_=
+Content-Type: text/plain; charset=US-ASCII
+
+                                                                                                                           
+               Cancelled: test 2                                                                                           
+                                                                                                                           
+               04.05.2019 -                                                                                                
+                                                                                                                           
+                                                                                                                           
+                                                                                                                           
+                                                                                                                           
+                                                                                                                           
+                                                                                                                           
+                                                                                                                           
+                                                                                                                           
+                                                                                                                           
+                                                                                                                           
+                                                                                                                           
+
+
+
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+  aksdlajsld aksdlajsld                                                           
+                     has cancelled this meeting. Your calendar will be      
+                     updated to reflect this change.                        
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+  Required:                                                                 
+               my.mailbox.calendar+notes@gmail.com                          
+                                                                            
+                                                                            
+
+
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+
+
+--=_alternative D7531CD80B5DE05CC12583F00057F20B_=
+Content-Type: text/html; charset=US-ASCII
+Content-Disposition: inline
+
+<html><body>
+<p>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="1%"><img width="101" height="1" src="/icons/ecblank.gif" border="0" alt=""><br>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="100%"><img src="cid:1__=4EBB0963DFC4749B8f9e8a93df938690918c4EB@" width="65" height="65"></td></tr>
+</table>
+</td><td width="100%"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""><br>
+<font size="3"><b>Cancelled: test 2</b></font>
+<table id="NoticeTable" width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="1%" valign="middle"><img width="604" height="1" src="/icons/ecblank.gif" border="0" alt=""><br>
+<font size="2"><b>04.05.2019</b></font><font size="2">&nbsp;- </font></td><td width="1%" valign="middle"><img width="72" height="1" src="/icons/ecblank.gif" border="0" alt=""><br>
+</td><td width="100%" valign="middle"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""><br>
+</td></tr>
+</table>
+<br>
+<font size="1">No Location Information</font></td></tr>
+</table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="100%">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="100%" bgcolor="#EBECED" valign="middle">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="1%"><img width="149" height="1" src="/icons/ecblank.gif" border="0" alt=""><br>
+<font size="1"><b>aksdlajsld aksdlajsld</b></font></td><td width="100%"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""><br>
+
+<ul style="padding-left: 3pt; margin-left: 0px"><font size="1">has cancelled this meeting. Your calendar will be updated to reflect this change.</font></ul>
+</td></tr>
+</table>
+
+<table id="ShowComments" width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="100%">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="0%"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="100%"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""><br>
+</td></tr>
+</table>
+</td></tr>
+</table>
+</td></tr>
+</table>
+</td></tr>
+
+<tr valign="top"><td width="100%">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="100%" bgcolor="#FFFFFF">
+<table id="AddrDisplay" width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td id="AddrDisplay1" width="1%" valign="middle"><img width="101" height="1" src="/icons/ecblank.gif" border="0" alt=""><br>
+<font size="1" color="#616161">Required:</font></td><td width="100%" valign="middle"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""><br>
+<font size="1">my.mailbox.calendar+notes@gmail.com</font></td></tr>
+</table>
+</td></tr>
+</table>
+</td></tr>
+</table>
+
+<table id="ShowDescription" width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="100%">
+<table id="Description" width="100%" border="0" cellspacing="0" cellpadding="0"><tbody title="Description">
+<tr class="domino_tablabel"><th scope="rowgroup" colspan="1">Description</th></tr>
+
+<tr valign="top"><td width="100%" bgcolor="#E7E9F0" valign="middle">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="100%" bgcolor="#FFFFFF">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="100%"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td></tr>
+</table>
+</td></tr>
+</table>
+</td></tr>
+</tbody></table>
+</td></tr>
+</table>
+</body></html>
+
+--=_alternative D7531CD80B5DE05CC12583F00057F20B_=
+Content-Type: text/calendar; method="CANCEL"; charset="UTF-8"
+
+BEGIN:VCALENDAR
+X-LOTUS-CHARSET:UTF-8
+VERSION:2.0
+PRODID:-//Lotus Development Corporation//NONSGML Notes 9.0.1//EN_C
+METHOD:CANCEL
+BEGIN:VTIMEZONE
+TZID:Europe/Berlin
+BEGIN:STANDARD
+DTSTART:19501029T020000
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+RRULE:FREQ=YEARLY;BYMINUTE=0;BYHOUR=2;BYDAY=-1SU;BYMONTH=10
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:19500326T020000
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+RRULE:FREQ=YEARLY;BYMINUTE=0;BYHOUR=2;BYDAY=-1SU;BYMONTH=3
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTART;TZID="Europe/Berlin":20190504T190000
+DTEND;TZID="Europe/Berlin":20190504T200000
+TRANSP:OPAQUE
+DTSTAMP:20190504T160023Z
+SEQUENCE:1
+ATTENDEE;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="aksdlajsld aksdlajsld/lswi"
+ ;RSVP=FALSE:mailto:aksdlajsld.aksdlajsld@wi.uni-potsdam.de
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE
+ :mailto:my.mailbox.calendar+notes@gmail.com
+CLASS:PUBLIC
+SUMMARY:test 2
+ORGANIZER;CN="aksdlajsld aksdlajsld/lswi"
+ :mailto:aksdlajsld.aksdlajsld@wi.uni-potsdam.de
+UID:63BC1FCA78E84A2AC12583F00057C2F2-Lotus_Notes_Generated
+STATUS:CANCELLED
+X-LOTUS-BROADCAST:FALSE
+X-LOTUS-UPDATE-SEQ:1
+X-LOTUS-UPDATE-WISL:$S:1;$L:1;$B:1;$R:1;$E:1;$W:1;$O:1;$M:1;RequiredAttendees:1;INetRequiredNames:1;AltRequiredNames:1;StorageRequiredNames:1;OptionalAttendees:1;INetOptionalNames:1;AltOptionalNames:1;StorageOptionalNames:1;ApptUNIDURL:1;STUnyteConferenceURL:1;STUnyteConferenceID:1;SametimeType:1;WhiteBoardContent:1;STRoomName:1
+X-LOTUS-NOTESVERSION:2
+X-LOTUS-NOTICETYPE:C
+X-LOTUS-APPTTYPE:3
+X-LOTUS-CHILD-UID:D7531CD80B5DE05CC12583F00057F20B
+END:VEVENT
+END:VCALENDAR
+
+--=_alternative D7531CD80B5DE05CC12583F00057F20B_=--
+--=_related D7531CD80B5DE05CC12583F00057F20B_=
+Content-Type: image/gif; name=pic54751.gif
+Content-Disposition: inline; filename=pic54751.gif
+Content-ID: <1__=4EBB0963DFC4749B8f9e8a93df938690918c4EB@>
+Content-Transfer-Encoding: base64
+
+R0lGODlhQQBBAOZiAPr6+vn5+dLS0rCwsPj4+M7Ozvv7++Hh4erq6nR0dGtra4ODg35+ftPT04eH
+h3BwcN/f325ubqGhocfHx56enr+/v/39/Xt7e5mZme3t7dra2qmpqc/Pz/Hx8fT09JCQkJOTk+zs
+7KWlpW1tbd3d3ebm5tXV1Zqamujo6OXl5dHR0ePj45KSkomJifb29u/v79jY2Hl5ebGxsdzc3Hd3
+d3Jycrq6uoCAgIWFhbi4uLOzs8PDw5ycnL6+vry8vODg4I6Ojtvb26CgoOLi4v7+/tbW1nx8fKOj
+o5eXl8HBwcjIyNfX13V1dfPz86qqqqenp7e3t/Dw8K6urouLi/Ly8tTU1IKCgu7u7uTk5Ofn54yM
+jOvr6/X19ZWVldnZ2Wlpaf///8zMzP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5
+BAEAAGIALAAAAABBAEEAAAf/gGKCg4SFhoeIiYqLjI2Oj5CRkpOUlZaXmJmam5ydlQBhoaKjpKWm
+p6ICmaisraiarrGyqpihhrKst7SWoGFiAIMBuK+FYbuWtsXDprewvsrLpLqrz4TRpdOXvdfRx5Xc
+187gw96e5rXjqA1DLwYEBwcFByFg9WCT6aYkVCEVGAlfAgr8QgNEDgSS8o36waUIkIEQI2pRcs9R
+MmuibmUsZAJHxI8RrTSwWG3QKI0XwQB4ArJlRAoeKia6aHIjxmRgVtxwyXPghRQyD9EUdBKaLzAp
+AH5ksIHDgRdgMhzgsIEByAcwgipDWZKoKDAomHw8AeHePRUlc0pQEDHCDK01/68NyRAjooMSV7xg
+I3SvhIOINVDAFcOtCoGdEGUY+HEKkYEBEVsYEHoNgZOIOxCgbWwIjIUNH3VQ5nprxoGIPhDYrHmI
+AAiQCg5oJF2sAwuITsAUWO21EBgEC1yy0DqUMG8xSyBAvEDAeHGaYDQodQlhq1FDW45AHOm8q/FB
+YCaMiIhBBUQJ1m96B/Bg4Ie43nFCjjjg3oeBEYDBjxWkAcQCJMjyywkRjTCBWWFsJ9MyWcwXUH67
+uYJFBy1ElIAGMrE30ADqxdLBawJ1EUUsKBxwQUQMIBAUGLcJ9MGCwwBQl0AylNAKBwgUEEFEH8Tk
+m4NfxAAjLkSwJdAEELCyRP8IOXy0gQWDTTCQAkPGUgAB2wWBCgkGSBCRAhUowgFEzU3iAkRFJAKG
+Bw9B9IAJi/g3kAuUAABRGIP9ZtVyKTBSAESDNQJGewKF2ZkJ0wnUQgeN9DBQDYE2EpxAT2gFRgVG
+DiSBfouAoZ1ADlQCBgUDLRDUZx/lEKlvewYkxKqLODpQCYO41lYBsBKCAERJWBICRPWJkcGkA9FQ
+1iNgAPlFBpaA4ZFANXgAAQ0RLZBBroQQkKgD2CpSAUQf7AgREgR0O4iyvV7iQqIfcSjJAeMJlECZ
+zULRkoHmDvKCERDZkG8iALQ60IWTNIGYQAxwigkMH5EwSQfEBqTADJ3oENGDBRpEwoFYiXliAYER
+SSCYGHmSHAKpEfHwryMGgEheAT6aRXITBZyQ6UBIKMwJGF26tAAPIgRNQcQvGbByJDbE21NLCvhw
+ziEpPLu0XSscLaoS/E4dEAMHPq1IPQ1gQGhLD2BgQj1eCwoGDDtIIcIUDjgghAg2aABl2pLYozfJ
+ePe9SCAAOw==
+
+
+--=_related D7531CD80B5DE05CC12583F00057F20B_=
+Content-Type: text/html; charset=US-ASCII
+Content-Disposition: inline
+Content-ID: <FFFF__=4EBB0963DFC4749B8f9e8a93df938690918c4EB@>
+
+<html><body></body></html>
+--=_related D7531CD80B5DE05CC12583F00057F20B_=--
+--=_mixed D7531CD80B5DE05CC12583F00057F20B_=
+Content-Type: application/octet-stream; charset="UTF-8"; name="c180023.ics"
+Content-Disposition: attachment; filename="c180023.ics"
+
+BEGIN:VCALENDAR
+X-LOTUS-CHARSET:UTF-8
+VERSION:2.0
+PRODID:-//Lotus Development Corporation//NONSGML Notes 9.0.1//EN_C
+METHOD:CANCEL
+BEGIN:VTIMEZONE
+TZID:Europe/Berlin
+BEGIN:STANDARD
+DTSTART:19501029T020000
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+RRULE:FREQ=YEARLY;BYMINUTE=0;BYHOUR=2;BYDAY=-1SU;BYMONTH=10
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:19500326T020000
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+RRULE:FREQ=YEARLY;BYMINUTE=0;BYHOUR=2;BYDAY=-1SU;BYMONTH=3
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTART;TZID="Europe/Berlin":20190504T190000
+DTEND;TZID="Europe/Berlin":20190504T200000
+TRANSP:OPAQUE
+DTSTAMP:20190504T160023Z
+SEQUENCE:1
+ATTENDEE;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="aksdlajsld aksdlajsld/lswi"
+ ;RSVP=FALSE:mailto:aksdlajsld.aksdlajsld@wi.uni-potsdam.de
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE
+ :mailto:my.mailbox.calendar+notes@gmail.com
+CLASS:PUBLIC
+SUMMARY:test 2
+ORGANIZER;CN="aksdlajsld aksdlajsld/lswi"
+ :mailto:aksdlajsld.aksdlajsld@wi.uni-potsdam.de
+UID:63BC1FCA78E84A2AC12583F00057C2F2-Lotus_Notes_Generated
+STATUS:CANCELLED
+X-LOTUS-BROADCAST:FALSE
+X-LOTUS-UPDATE-SEQ:1
+X-LOTUS-UPDATE-WISL:$S:1;$L:1;$B:1;$R:1;$E:1;$W:1;$O:1;$M:1;RequiredAttendees:1;INetRequiredNames:1;AltRequiredNames:1;StorageRequiredNames:1;OptionalAttendees:1;INetOptionalNames:1;AltOptionalNames:1;StorageOptionalNames:1;ApptUNIDURL:1;STUnyteConferenceURL:1;STUnyteConferenceID:1;SametimeType:1;WhiteBoardContent:1;STRoomName:1
+X-LOTUS-NOTESVERSION:2
+X-LOTUS-NOTICETYPE:C
+X-LOTUS-APPTTYPE:3
+X-LOTUS-CHILD-UID:D7531CD80B5DE05CC12583F00057F20B
+END:VEVENT
+END:VCALENDAR
+
+--=_mixed D7531CD80B5DE05CC12583F00057F20B_=--
+

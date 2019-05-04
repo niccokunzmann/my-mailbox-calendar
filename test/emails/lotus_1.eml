@@ -1,0 +1,474 @@
+Delivered-To: my.mailbox.calendar+notes@gmail.com
+Received: by 2002:a9d:6305:0:0:0:0:0 with SMTP id q5csp682311otk;
+        Sat, 4 May 2019 08:58:32 -0700 (PDT)
+X-Google-Smtp-Source: APXvYqzv/9q6T1RYvmDl2VV4TLHujKEq2CnOcAfKz9mFCq/Ba0lV1uldyJf8ybiSc6aKI1uljSOj
+X-Received: by 2002:a05:6402:54a:: with SMTP id i10mr15728172edx.162.1556985512137;
+        Sat, 04 May 2019 08:58:32 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1556985512; cv=none;
+        d=google.com; s=arc-20160816;
+        b=wwhtiVmaSiv4An8jG7kMJ8xVNxJ9MqQfm/orZJmxPE4tVXyiSrSMHouBAQ1PxmpMdS
+         qyf4jJKjkjuuas+er2hJ920MM9neE1MZwmZITF4MKv1ndrWbjhJ5gKP+IL6uMQSOF31b
+         urkqQ1pg4PYCwVp9DUc8yDMLfUgXascI0NnAiOkwQZ18WOgwWOABDoFGlr+ZMAAu6Dmf
+         aHszUjflW5iFXB46e7VaUSuaH81nQas931k18x/B7Nb7ad7DDzpQiYz4ZKKwrtjbqxr5
+         ofIxHJ7jzCOPuUEeupDcQagc886tWUOiMzl9VAP4/JI7MO0BQlYmPgpDirBtak3f8Vic
+         pDbQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=date:from:message-id:mime-version:subject:importance:to;
+        bh=AmE/frnjVsjlVqkg0E8NXHeM5NX52LESvIj97921Dxk=;
+        b=VwwUJES5QqedDgj2LBivKSXAf8ot2R/z27wgbhbRtNk7LyOr54iFBasH0X8qTZ6Ick
+         gRH4dt6dwnBwT4ZJOw6btQ8KONLfyCeLj4SU7WbyQA8StFim/qs5zNYOTcFghkQeim8B
+         IApcaXUyi8+U0yl4OY6BWVqyEiWDcIhSnJiMPkDX4ZhjDFvBOsWj8CspOX4SzacDs3XN
+         VDM/Y9vcY1S6floMW1X1RCQGieD4cJkSWCPpgMKjhBpGBPv4C6Jd5z5B0p7bu/rz8/Yu
+         z4Cp3fz/XrwkJfFAYhJiCY1Yw4UY+R95hcRum3utpaORxRD5OsqdunIBdPYQmaE+jHiv
+         u4rQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=pass (google.com: best guess record for domain of kirstin.heidler@wi.uni-potsdam.de designates 141.89.68.1 as permitted sender) smtp.mailfrom=Kirstin.Heidler@wi.uni-potsdam.de
+Return-Path: <Kirstin.Heidler@wi.uni-potsdam.de>
+Received: from cl-mail.uni-potsdam.de (cl-mail.rz.uni-potsdam.de. [141.89.68.1])
+        by mx.google.com with ESMTPS id z40si2335475edc.400.2019.05.04.08.58.31
+        for <my.mailbox.calendar+notes@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+        Sat, 04 May 2019 08:58:32 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of kirstin.heidler@wi.uni-potsdam.de designates 141.89.68.1 as permitted sender) client-ip=141.89.68.1;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: best guess record for domain of kirstin.heidler@wi.uni-potsdam.de designates 141.89.68.1 as permitted sender) smtp.mailfrom=Kirstin.Heidler@wi.uni-potsdam.de
+Received: from mailrelay.rz.uni-potsdam.de (n-mailrelay-01-ucs.rz.uni-potsdam.de [10.9.11.249])
+	by cl-mail.uni-potsdam.de (8.15.2/8.15.2) with ESMTP id x44FwVxn009815
+	for <my.mailbox.calendar+notes@gmail.com>; Sat, 4 May 2019 17:58:31 +0200 (CEST)
+Received: from [141.89.39.58] (helo=hermes.wi.uni-potsdam.de)
+	by mailrelay.rz.uni-potsdam.de with esmtps (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.86_2)
+	(envelope-from <Kirstin.Heidler@wi.uni-potsdam.de>)
+	id 1hMx3X-0006Hx-Cb
+	for my.mailbox.calendar+notes@gmail.com; Sat, 04 May 2019 17:58:31 +0200
+X-Quarantine-ID: <DSkdYfaAHz2U>
+X-Virus-Scanned: Debian amavisd-new at hermes.wi.uni-potsdam.de
+X-Spam-Flag: NO
+X-Spam-Score: 1.1
+X-Spam-Level: *
+X-Spam-Status: No, score=1.1 tagged_above=-9999 required=4.31
+	tests=[BAYES_00=-1.9, DIRECT_SPF_NONE=1, HTML_MESSAGE=0.001,
+	SPF_NONE=0.0001, TO_NO_BRKTS_HTML_IMG=1.999]
+	autolearn=no autolearn_force=no
+Received: from wi.uni-potsdam.de (galaxy.wi.uni-potsdam.de [141.89.39.10])
+	by hermes.wi.uni-potsdam.de (Postfix) with ESMTPS id 4F528EE6
+	for <my.mailbox.calendar+notes@gmail.com>; Sat,  4 May 2019 17:58:30 +0200 (CEST)
+X-Notes-Item: 1;
+ name=$publicaccess
+X-Notes-Item: CN=Kirstin Heidler/O=lswi;
+ name=$AltPrincipal
+X-Notes-Item: 1;
+ name=$SMTPKeepNotesItems
+X-Notes-Item: 1;
+ name=WebDateTimeInit
+X-Notes-Item: Meeting;
+ name=$IconSwitcher
+X-Notes-Item: Sat, 4 May 2019 19:00:00 +0200;
+ type=400; name=$NoPurge
+X-Notes-Item: =?UTF-8?B?U2VuZFtnYWxheHldIGJ5IGVjbGlwc2Ugb24gS2lyc3RpbiBIZWlkbGVyKA==?=
+ =?UTF-8?B?UmVsZWFzZSA5LjAuMUVYVHxTZXB0ZW1iZXIgMTUsIDIwMTUpIGF0?=
+ =?UTF-8?B?IDA0LjA1LjIwMTkgMTc6NTg6MDk=?=,
+	=?UTF-8?B?UHJlcGFyZVRvU2VuZFtnYWxheHldIGJ5IGVjbGlwc2Ugb24gS2lyc3Rpbg==?=
+ =?UTF-8?B?IEhlaWRsZXIoUmVsZWFzZSA5LjAuMUVYVHxTZXB0ZW1iZXIgMTUsIDIwMTU=?=
+ =?UTF-8?B?KSBhdCAwNC4wNS4yMDE5IDE3OjU4OjA5?=,
+	=?UTF-8?B?Q1MgTm90aWNlIGNvbnZlcnRlZCB0byBpQ2FsZW5kYXIgZm9ybWF0Ww==?=
+ =?UTF-8?B?Z2FsYXh5XSBieSBlY2xpcHNlIG9uIEtpcnN0aW4gSGVpZGxlcihSZWxlYXNl?=
+ =?UTF-8?B?IDkuMC4xRVhUfFNlcHRlbWJlciAxNSwgMjAxNSkgYXQgMDQuMDUuMjAxOQ==?=
+ =?UTF-8?B?IDE3OjU4OjE0?=;
+ type=501; flags=0; name=$CSTrack
+X-Notes-Item: my.mailbox.calendar+notes@gmail.com;
+ flags=44; name=RequiredAttendees
+X-Notes-Item: my.mailbox.calendar+notes@gmail.com;
+ flags=44; name=AltRequiredNames
+X-Notes-Item: my.mailbox.calendar+notes@gmail.com;
+ flags=44; name=INetRequiredNames
+X-Notes-Item: .;
+ flags=44; name=StorageRequiredNames
+X-Notes-Item: Sat, 4 May 2019 17:58:09 +0200;
+ type=400; name=OriginalModTime
+To: my.mailbox.calendar+notes@gmail.com
+X-Notes-Item: en;
+ name=$NameLanguageTags
+X-Notes-Item: ;
+ flags=45; name=INetCopyTo
+X-Notes-Item: ;
+ flags=44; name=INetBlindCopyTo
+X-Notes-Item: my.mailbox.calendar+notes@gmail.com;
+ flags=45; name=AltSendTo
+X-Notes-Item: ;
+ flags=45; name=AltCopyTo
+X-Notes-Item: ;
+ flags=44; name=AltBlindCopyTo
+X-Notes-Item: .;
+ name=$StorageTo
+X-Notes-Item: ;
+ name=$StorageCc
+X-Notes-Item: ;
+ name=$StorageBcc
+X-Notes-Item: 2031619;
+ name=MIMEMailHeaderCharset
+X-Notes-Item: 1;
+ name=$HFFlags
+X-Notes-Item: StdNotesLtr25;
+ name=Logo
+X-Notes-Item: de;
+ name=$FromPreferredLanguage
+X-Notes-Item: 7F96A3;
+ name=$BorderColor
+X-Notes-Item: Description;
+ name=$TableSwitcher
+X-Notes-Item: CN=Kirstin Heidler/O=lswi;
+ flags=44; name=AltChair
+X-Notes-Item: ;
+ flags=44; name=OnlinePlace
+X-Notes-Item: 0;
+ name=IsBroadcast
+X-Notes-Item: 3;
+ name=$ExpandGroups
+X-Notes-Item: ;
+ name=IsTeamCalendar
+X-Notes-Item: ;
+ name=CalForwardChairNotificationTo
+Importance: 
+X-Notes-Item: ;
+ name=Sign
+Subject: test
+X-Notes-Item: ;
+ name=ConferenceCallInfo
+X-Notes-Item: ;
+ name=STRecordMeeting
+MIME-Version: 1.0
+X-Notes-Item: Memo;
+ name=Form
+X-Notes-Item: 1;
+ name=$NoteContainsIcal
+X-Notes-Item: 1;
+ name=SchedulerSwitcher
+X-Mailer: IBM Notes Release 9.0.1EXT September 15, 2015
+Message-ID: <OF8C1FADA5.E84B2108-ONC12583F0.0057C0E3-C12583F0.0057BAD3@wi.uni-potsdam.de>
+From: Kirstin.Heidler@wi.uni-potsdam.de
+Date: Sat, 4 May 2019 17:58:14 +0200
+X-Notes-Item: 0;
+ name=Encrypt
+X-Notes-Item: CN=galaxy/O=lswi;
+ type=501; flags=44; name=$UpdatedBy
+X-Notes-Item: CN=Kirstin Heidler/O=lswi;
+ name=$OnBehalfOf
+X-Notes-Item: wi.uni-potsdam.de;
+ name=FromDomain
+X-Notes-Item: 25;
+ type=300; name=$Hops
+X-Notes-Item: 1;
+ name=$NoteHasNativeMIME
+X-Notes-Item: CN=Kirstin Heidler/O=lswi;
+ name=OriginalFrom
+X-MIMETrack: Serialize by Router on galaxy/lswi(Release 10.0.1|November 29, 2018) at
+ 04.05.2019 17:58:29,
+	Serialize complete at 04.05.2019 17:58:29
+Content-Type: multipart/mixed; boundary="=_mixed 5319F4E610600F89C12583F000579BE8_="
+X-Miltered: at n-mail-2 with ID 5CCDB6A7.003 by Joe's j-chkmail (http : // j-chkmail dot ensmp dot fr)!
+X-j-chkmail-Enveloppe: 5CCDB6A7.003 from n-mailrelay-01-ucs.rz.uni-potsdam.de/n-mailrelay-01-ucs.rz.uni-potsdam.de/10.9.11.249/mailrelay.rz.uni-potsdam.de/<Kirstin.Heidler@wi.uni-potsdam.de>
+X-j-chkmail-Score: MSGID : 5CCDB6A7.003 on cl-mail.uni-potsdam.de : j-chkmail score : XX : R=. U=. O=#### B=0.000 -> S=0.332
+X-j-chkmail-Status: Unsure
+
+This is a multipart message in MIME format.
+--=_mixed 5319F4E610600F89C12583F000579BE8_=
+Content-Type: multipart/related; boundary="=_related 5319F4E610600F89C12583F000579BE8_="
+
+
+--=_related 5319F4E610600F89C12583F000579BE8_=
+Content-Type: multipart/alternative; boundary="=_alternative 5319F4E610600F89C12583F000579BE8_="
+
+
+--=_alternative 5319F4E610600F89C12583F000579BE8_=
+Content-Type: text/plain; charset=US-ASCII
+
+                                                                                                                           
+               Invitation: test                                                                                            
+                                                                                                                           
+               04.05.2019 -                                                                                                
+                                                                                                                           
+                                                                                                                           
+                                                                                                                           
+                                                                                                                           
+                                                                                                                           
+                                                                                                                           
+                                                                                                                           
+                                                                                                                           
+                                                                                                                           
+                                                                                                                           
+                                                                                                                           
+
+
+
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+  Kirstin Heidler                                                           
+                     has invited you to a meeting.  You have not yet        
+                     responded.                                             
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+  Required:                                                                 
+               my.mailbox.calendar+notes@gmail.com                          
+                                                                            
+                                                                            
+
+
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+
+
+--=_alternative 5319F4E610600F89C12583F000579BE8_=
+Content-Type: text/html; charset=US-ASCII
+Content-Disposition: inline
+
+<html><body>
+<p>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="1%"><img width="101" height="1" src="/icons/ecblank.gif" border="0" alt=""><br>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="100%"><img src="cid:1__=4EBB0963DFC41D788f9e8a93df938690918c4EB@" width="65" height="65"></td></tr>
+</table>
+</td><td width="100%"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""><br>
+<font size="3"><b>Invitation: test</b></font>
+<table id="NoticeTable" width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="1%" valign="middle"><img width="604" height="1" src="/icons/ecblank.gif" border="0" alt=""><br>
+<font size="2"><b>04.05.2019</b></font><font size="2">&nbsp;- </font></td><td width="1%" valign="middle"><img width="72" height="1" src="/icons/ecblank.gif" border="0" alt=""><br>
+</td><td width="100%" valign="middle"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""><br>
+</td></tr>
+</table>
+<br>
+<font size="1">No Location Information</font></td></tr>
+</table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="100%">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="100%" bgcolor="#EBECED" valign="middle">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="1%"><img width="149" height="1" src="/icons/ecblank.gif" border="0" alt=""><br>
+<font size="1"><b>Kirstin Heidler</b></font></td><td width="100%"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""><br>
+
+<ul style="padding-left: 3pt; margin-left: 0px"><font size="1">has invited you to a meeting. &nbsp;You have not yet responded.</font></ul>
+</td></tr>
+</table>
+
+<table id="ShowComments" width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="100%">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="0%"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td><td width="100%"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""><br>
+</td></tr>
+</table>
+</td></tr>
+</table>
+</td></tr>
+</table>
+</td></tr>
+
+<tr valign="top"><td width="100%">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="100%" bgcolor="#FFFFFF">
+<table id="AddrDisplay" width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td id="AddrDisplay1" width="1%" valign="middle"><img width="101" height="1" src="/icons/ecblank.gif" border="0" alt=""><br>
+<font size="1" color="#616161">Required:</font></td><td width="100%" valign="middle"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""><br>
+<font size="1">my.mailbox.calendar+notes@gmail.com</font></td></tr>
+</table>
+</td></tr>
+</table>
+</td></tr>
+</table>
+
+<table id="ShowDescription" width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="100%">
+<table id="Description" width="100%" border="0" cellspacing="0" cellpadding="0"><tbody title="Description">
+<tr class="domino_tablabel"><th scope="rowgroup" colspan="1">Description</th></tr>
+
+<tr valign="top"><td width="100%" bgcolor="#E7E9F0" valign="middle">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="100%" bgcolor="#FFFFFF">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr valign="top"><td width="100%"><img width="1" height="1" src="/icons/ecblank.gif" border="0" alt=""></td></tr>
+</table>
+</td></tr>
+</table>
+</td></tr>
+</tbody></table>
+</td></tr>
+</table>
+</body></html>
+
+--=_alternative 5319F4E610600F89C12583F000579BE8_=
+Content-Type: text/calendar; method="REQUEST"; charset="UTF-8"
+
+BEGIN:VCALENDAR
+X-LOTUS-CHARSET:UTF-8
+VERSION:2.0
+PRODID:-//Lotus Development Corporation//NONSGML Notes 9.0.1//EN_C
+METHOD:REQUEST
+BEGIN:VTIMEZONE
+TZID:Europe/Berlin
+BEGIN:STANDARD
+DTSTART:19501029T020000
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+RRULE:FREQ=YEARLY;BYMINUTE=0;BYHOUR=2;BYDAY=-1SU;BYMONTH=10
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:19500326T020000
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+RRULE:FREQ=YEARLY;BYMINUTE=0;BYHOUR=2;BYDAY=-1SU;BYMONTH=3
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTART;TZID="Europe/Berlin":20190504T180000
+DTEND;TZID="Europe/Berlin":20190504T190000
+TRANSP:OPAQUE
+DTSTAMP:20190504T155814Z
+SEQUENCE:0
+ATTENDEE;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Kirstin Heidler/lswi"
+ ;RSVP=FALSE:mailto:Kirstin.Heidler@wi.uni-potsdam.de
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE
+ :mailto:my.mailbox.calendar+notes@gmail.com
+CLASS:PUBLIC
+DESCRIPTION;ALTREP="CID:<FFFF__=4EBB0963DFC41D788f9e8a93df938690918c4EB@>":
+SUMMARY:test
+ORGANIZER;CN="Kirstin Heidler/lswi"
+ :mailto:Kirstin.Heidler@wi.uni-potsdam.de
+UID:5319F4E610600F89C12583F000579BE8-Lotus_Notes_Generated
+X-LOTUS-BROADCAST:FALSE
+X-LOTUS-UPDATE-SEQ:1
+X-LOTUS-UPDATE-WISL:$S:1;$L:1;$B:1;$R:1;$E:1;$W:1;$O:1;$M:1;RequiredAttendees:1;INetRequiredNames:1;AltRequiredNames:1;StorageRequiredNames:1;OptionalAttendees:1;INetOptionalNames:1;AltOptionalNames:1;StorageOptionalNames:1;ApptUNIDURL:1;STUnyteConferenceURL:1;STUnyteConferenceID:1;SametimeType:1;WhiteBoardContent:1;STRoomName:1
+X-LOTUS-NOTESVERSION:2
+X-LOTUS-NOTICETYPE:I
+X-LOTUS-APPTTYPE:3
+X-LOTUS-CHILD-UID:5319F4E610600F89C12583F000579BE8
+END:VEVENT
+END:VCALENDAR
+
+--=_alternative 5319F4E610600F89C12583F000579BE8_=--
+--=_related 5319F4E610600F89C12583F000579BE8_=
+Content-Type: image/gif; name=pic29354.gif
+Content-Disposition: inline; filename=pic29354.gif
+Content-ID: <1__=4EBB0963DFC41D788f9e8a93df938690918c4EB@>
+Content-Transfer-Encoding: base64
+
+R0lGODlhQQBBAOZlANPT0wCKv/////r6+tjY2Pf399TU1PT09NXV1TOhzGa52ZnQ5fz+/hKSxMzo
+8tLq9Pb7/QyQwsnm8QmOwTajzeHx9+r1+vb29q7a6/P5/I3L4h6YxwOLwNzc3CecycDi7xWUxPn8
+/YfI4Vqz1qvY6my82tvb22m62eTz+Eus0r3h7iGZx2O32Eir0bHb6+f0+e3t7ajX6T+nz+jo6OXl
+5Sqdyley1e7u7vD4++33+pDM4w+Rw1Sx1GC21waNwYTH4E6u00Wq0N3d3RiVxXvC3uvr6/39/d7w
+94rJ4s/p8/Pz85/T59/f3/7+/vn5+djt9aLU6HjB3YHF35PN5MPj8HK+3OTk5Onp6SSbyNfX17fe
+7dXs9C2fypbP5dbW1lGv0+Pj4zymzpzS5vDw8G+92////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH/
+C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRj
+emtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRv
+YmUgWE1QIENvcmUgNS4wLWMwNjEgNjQuMTQwOTQ5LCAyMDEwLzEyLzA3LTEwOjU3OjAxICAgICAg
+ICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRm
+LXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0
+dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUu
+Y29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4w
+L3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1
+LjEgTWFjaW50b3NoIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjQyNDcyQTdENEREMTExRTJB
+NTIyRjVFNTdDNzZBQjI5IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjQyNDcyQTdFNEREMTEx
+RTJBNTIyRjVFNTdDNzZBQjI5Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9
+InhtcC5paWQ6NDI0NzJBN0I0REQxMTFFMkE1MjJGNUU1N0M3NkFCMjkiIHN0UmVmOmRvY3VtZW50
+SUQ9InhtcC5kaWQ6NDI0NzJBN0M0REQxMTFFMkE1MjJGNUU1N0M3NkFCMjkiLz4gPC9yZGY6RGVz
+Y3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4B//79
+/Pv6+fj39vX08/Lx8O/u7ezr6uno5+bl5OPi4eDf3t3c29rZ2NfW1dTT0tHQz87NzMvKycjHxsXE
+w8LBwL++vby7urm4t7a1tLOysbCvrq2sq6qpqKempaSjoqGgn56dnJuamZiXlpWUk5KRkI+OjYyL
+iomIh4aFhIOCgYB/fn18e3p5eHd2dXRzcnFwb25tbGtqaWhnZmVkY2JhYF9eXVxbWllYV1ZVVFNS
+UVBPTk1MS0pJSEdGRURDQkFAPz49PDs6OTg3NjU0MzIxMC8uLSwrKikoJyYlJCMiISAfHh0cGxoZ
+GBcWFRQTEhEQDw4NDAsKCQgHBgUEAwIBAAAh+QQBAABlACwAAAAAQQBBAAAH/4BlgoOEhYaHiImK
+i4yNjo+QkZKTiQKWl5iZmpuZlIsCYyYAo6SlpqeoAEIHAp6JTQapsrOlWa2uhgIDtLyzt7iEuqSs
+AgWxvaXExqO/wILCzJcEyKWY0wDNztDY0tSk1szOwbujBZYDCN7l5+nY4oPb6r3ZwPHytPS49vey
++fqcAANueveMHD98BMvsO3jKn6eFDKslhBgxnEKHkChWbCXgBQmMjuIpOzZyVEkAJ90J0CADZKN4
+4LhZuhYzpsoaAba4/GRQpgCa3XwCnflNgIQAAcjsVBTPnK52TtGtezpVarQTSHdAWIpIY0QBEBog
+DSCG6yGvDAXEGBsggdlcPf8rmhIQhG0AB2/HyUVFAAUHuyzywut5srClZSgPH5vxw26ACTgEK+xZ
+M2hlogCcYHEcQIdkmJZDYwYnhArnAB4+94wKlV3V1lRvsDgd4INgtKUMdNgNhgaNKzBg3LhA3EiG
+CLRtCMRUCPcoAyEcSIeyYIEUBQp6JNiOnPbYDdsThMGOXUP1BRiaOQfAREt37/Djj42gQn1cWkUe
+bJDPn/aQB/QI4IU3M7xAQX8IjlVDBfkIoIQo1FgRQg8J9idDDg4tB5AIFcbHw1YJXUTCBB2eVoIl
+IcIjwRAl2qUBiinCUwEXLQbgQwwwxghPBi2U2IBtOp7FQAkVbgBgkF09UKHBckh21UWFDTAgmSsC
+8NAhXk3mIlaFIkxJiQBKdhiEl5MIoEOJE4CY5TNAtFjfmgoxsCVnFCwwp2NRkJlREqf58IOUKPRI
+p56PCIAEZx7gxZEAU5BoFwcYrilACo5VoeYzAjxxoF3pZSkAAzuwtYJtDYZAxF9jnUAoI0axNUJk
+TBm1wlipecphACCkt5MAGSgwFoNNThoAEBaYZYkLIASwxKqVMADCAjlmZMEXIzDblQVHeHmstV0R
+yi2c4IYrriOBAAA7
+
+
+--=_related 5319F4E610600F89C12583F000579BE8_=
+Content-Type: text/html; charset=US-ASCII
+Content-Disposition: inline
+Content-ID: <FFFF__=4EBB0963DFC41D788f9e8a93df938690918c4EB@>
+
+<html><body></body></html>
+--=_related 5319F4E610600F89C12583F000579BE8_=--
+--=_mixed 5319F4E610600F89C12583F000579BE8_=
+Content-Type: application/octet-stream; charset="UTF-8"; name="c175814.ics"
+Content-Disposition: attachment; filename="c175814.ics"
+
+BEGIN:VCALENDAR
+X-LOTUS-CHARSET:UTF-8
+VERSION:2.0
+PRODID:-//Lotus Development Corporation//NONSGML Notes 9.0.1//EN_C
+METHOD:REQUEST
+BEGIN:VTIMEZONE
+TZID:Europe/Berlin
+BEGIN:STANDARD
+DTSTART:19501029T020000
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+RRULE:FREQ=YEARLY;BYMINUTE=0;BYHOUR=2;BYDAY=-1SU;BYMONTH=10
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:19500326T020000
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+RRULE:FREQ=YEARLY;BYMINUTE=0;BYHOUR=2;BYDAY=-1SU;BYMONTH=3
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTART;TZID="Europe/Berlin":20190504T180000
+DTEND;TZID="Europe/Berlin":20190504T190000
+TRANSP:OPAQUE
+DTSTAMP:20190504T155814Z
+SEQUENCE:0
+ATTENDEE;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN="Kirstin Heidler/lswi"
+ ;RSVP=FALSE:mailto:Kirstin.Heidler@wi.uni-potsdam.de
+ATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE
+ :mailto:my.mailbox.calendar+notes@gmail.com
+CLASS:PUBLIC
+DESCRIPTION;ALTREP="CID:<FFFF__=4EBB0963DFC41D788f9e8a93df938690918c4EB@>":
+SUMMARY:test
+ORGANIZER;CN="Kirstin Heidler/lswi"
+ :mailto:Kirstin.Heidler@wi.uni-potsdam.de
+UID:5319F4E610600F89C12583F000579BE8-Lotus_Notes_Generated
+X-LOTUS-BROADCAST:FALSE
+X-LOTUS-UPDATE-SEQ:1
+X-LOTUS-UPDATE-WISL:$S:1;$L:1;$B:1;$R:1;$E:1;$W:1;$O:1;$M:1;RequiredAttendees:1;INetRequiredNames:1;AltRequiredNames:1;StorageRequiredNames:1;OptionalAttendees:1;INetOptionalNames:1;AltOptionalNames:1;StorageOptionalNames:1;ApptUNIDURL:1;STUnyteConferenceURL:1;STUnyteConferenceID:1;SametimeType:1;WhiteBoardContent:1;STRoomName:1
+X-LOTUS-NOTESVERSION:2
+X-LOTUS-NOTICETYPE:I
+X-LOTUS-APPTTYPE:3
+X-LOTUS-CHILD-UID:5319F4E610600F89C12583F000579BE8
+END:VEVENT
+END:VCALENDAR
+
+--=_mixed 5319F4E610600F89C12583F000579BE8_=--
+

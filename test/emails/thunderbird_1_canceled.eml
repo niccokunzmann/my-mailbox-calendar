@@ -1,0 +1,179 @@
+Delivered-To: my.mailbox.calendar+test@gmail.com
+Received: by 2002:a9d:140a:0:0:0:0:0 with SMTP id h10csp2194639oth;
+        Sun, 14 Apr 2019 16:31:55 -0700 (PDT)
+X-Received: by 2002:a1c:9d4c:: with SMTP id g73mr19293513wme.48.1555284715816;
+        Sun, 14 Apr 2019 16:31:55 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1555284715; cv=none;
+        d=google.com; s=arc-20160816;
+        b=hNVg2/AX0UmzKZm80v+hlSgBItX/5bAlNBGAtm05Gq7XMz1lZ7JbDUemf2w+xG7qcW
+         SO5B9mGjBznZxRAr1I6C4wiz3EBVnz04BckPExuB7gzAwvpzZXrAfIxWQJeaxdSYW834
+         Vpel6CVYOOpJepxyxEGB+xK3jm1DxyTC7dMIoaesvrvmurUdrTN1YwIcbkdvUrGWBmNT
+         /87kanVH/tbj/+DPBy7EM1pMZIdkJsVXl+sFaOtUZIzUmri3n7A57o5tMxDYuWnMtp/6
+         1qIIfgzyu/aj1dCjRwCyD9tct6XM3zyBR2v9v4sQr5lyK0LFbhUoHrKQg8cAL1XCbKfP
+         Xfvw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=subject:date:to:message-id:mime-version:from:dkim-signature;
+        bh=alghf35IT6akqC3CJ0ZFSXWDdEHZLwgUR5/zljhIE1A=;
+        b=j/iUtYSm19XRUoJi15BMtnaimdSmHa79/uBpGENxAEl2h4p/FNEJlPtuCSd3SS8q7T
+         zU5fBtE792p6w96ECOY/u2N018o8m4br7cxo963KwfDtCyZVz5PkBsTI0yYmkQFhZVKJ
+         Z86disEls9yWnWlzYFQ4lZgPH6m+klxe62VYt/SGj4Ef6nyNbBoum0QYxQoGxgotmaCU
+         ksApe87rhOD2agTU5hfXiqbLOwRuKR2j61A1tKoBMxR5Anj+9W98FFhwZiDSO9fhleU9
+         QaaX6ZFf8pWHDDdKvqwp/3sb2iEVOd+wptHv2fKNFwmBAZrmfCdAceofjn64rezf/kkO
+         ay+g==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@googlemail.com header.s=20161025 header.b=ONXFj7aj;
+       spf=pass (google.com: domain of niccokunzmann@googlemail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=niccokunzmann@googlemail.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=googlemail.com
+Return-Path: <niccokunzmann@googlemail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id x2sor9594309wmh.7.2019.04.14.16.31.55
+        for <my.mailbox.calendar+test@gmail.com>
+        (Google Transport Security);
+        Sun, 14 Apr 2019 16:31:55 -0700 (PDT)
+Received-SPF: pass (google.com: domain of niccokunzmann@googlemail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@googlemail.com header.s=20161025 header.b=ONXFj7aj;
+       spf=pass (google.com: domain of niccokunzmann@googlemail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=niccokunzmann@googlemail.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=googlemail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlemail.com; s=20161025;
+        h=from:mime-version:message-id:to:date:subject;
+        bh=alghf35IT6akqC3CJ0ZFSXWDdEHZLwgUR5/zljhIE1A=;
+        b=ONXFj7ajQi+PJs8Zwb0TalEuLFaiJ9qBkn6cMv8nkkXF1imn2QC2swmtqyYuYTz4JX
+         j+Zt+HmwQumcgZsNW/zJtZhXBo5lKFgKxY8dyz2cKvLXYgCuf/42eB+JUrCwF9wINRCs
+         +n7+dTIYuiyCDk2zl2y3UjYEXx0SgMaaORhN0OPoiFQrIOYAaybfA4ToxsgmMszQ8ujJ
+         JfVOmUhS7FOdf9tR9Ds0rluXhuQ36Nq/YIxNgI9cB84uT1uNI0auc4B6anD51hKg6nEI
+         2Jmu+KoWw4SzECStkrO6QabbygcJS+YQJ3qr5w7KAgQblQyDgAJfzmEDfuz1pFB8uG7Z
+         5vhA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:from:mime-version:message-id:to:date:subject;
+        bh=alghf35IT6akqC3CJ0ZFSXWDdEHZLwgUR5/zljhIE1A=;
+        b=FyP6TnjT0Hadb2LEFlD8tQfxhVYaYt6zs+vbmob8Sq2Ia+B7x8rtaM5otJ1mALoLft
+         KH08+x29dN93DEzVomZeXgYZgJjZWx+VVf8Zyu08H967Go52POI39oetdhoWr28eh8f4
+         ZwTtKCUHTGWyWOalbOYJ9no0bcshpRkZBuBqqUBTUw9/Yb6IPsZVAdIaR3kb/6IdxwN6
+         BtkemDItwn1clVG0S8Ur0qbS8vU05jRA7sX5ewjD4AZNcSyTu1cQzXEUmHgXRKNMoEc1
+         h3IRIgIksDXGE4aP5q4dkF6u5xc4YiBOOWma6bFHa+36Q0gOcVn/LjgP+MMKSmhxpRn3
+         ifSA==
+X-Gm-Message-State: APjAAAW09oamKE9/Xf4Y23zkV0Ha0//yiPxIgmewQAW1lqr5MGVDAIu6
+	yhu9gbFMZKL+Mmx0LS+2eTpdYGKY
+X-Google-Smtp-Source: APXvYqwkzr3HoczTHj3GxrlWxkZI7rfRtLrQHOBeyj5q5LG/BjCAE4Z9kI/d6UQyT9f/E1PoRaHUtQ==
+X-Received: by 2002:a1c:f50a:: with SMTP id t10mr19646641wmh.86.1555284715266;
+        Sun, 14 Apr 2019 16:31:55 -0700 (PDT)
+Return-Path: <niccokunzmann@googlemail.com>
+Received: from [10.137.2.32] (p2E50C43A.dip0.t-ipconnect.de. [46.80.196.58])
+        by smtp.gmail.com with ESMTPSA id s12sm18845766wmj.42.2019.04.14.16.31.54
+        for <my.mailbox.calendar+test@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 14 Apr 2019 16:31:54 -0700 (PDT)
+From: Nicco Kunzmann <niccokunzmann@googlemail.com>
+X-Google-Original-From: Nicco Kunzmann <niccokunzmann@gmail.com>
+MIME-version: 1.0
+Message-ID: <4a8c08e9-4166-5b06-4171-450252dd146c@gmail.com>
+To: my.mailbox.calendar+test@gmail.com
+Date: Mon, 15 Apr 2019 01:31:51 +0200
+Subject: Event Canceled: Event
+Content-type: multipart/mixed; boundary="Boundary_(ID_qyG4ZdjoAsiZ+Jo19dCbWQ)"
+
+
+--Boundary_(ID_qyG4ZdjoAsiZ+Jo19dCbWQ)
+Content-type: multipart/alternative;
+ boundary="Boundary_(ID_ryU4ZdJoASiZ+Jo21dCbwA)"
+
+
+--Boundary_(ID_ryU4ZdJoASiZ+Jo21dCbwA)
+Content-type: text/plain; charset=UTF-8
+Content-transfer-encoding: 8BIT
+
+niccokunzmann+owncloud@gmail.com has canceled this event: Event
+
+
+--Boundary_(ID_ryU4ZdJoASiZ+Jo21dCbwA)
+Content-type: text/calendar; method=CANCEL; charset=UTF-8
+Content-transfer-encoding: 8BIT
+
+BEGIN:VCALENDAR
+PRODID:-//Mozilla.org/NONSGML Mozilla Calendar V1.1//EN
+VERSION:2.0
+METHOD:CANCEL
+BEGIN:VTIMEZONE
+TZID:Europe/Berlin
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;BYDAY=-1SU;BYMONTH=3
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;BYDAY=-1SU;BYMONTH=10
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+CREATED:20190414T233111Z
+LAST-MODIFIED:20190414T233151Z
+DTSTAMP:20190414T233151Z
+UID:ff66b09b-0ed1-4b19-bd4c-347954f27210
+SUMMARY:Event
+ORGANIZER;RSVP=TRUE;PARTSTAT=ACCEPTED;ROLE=CHAIR;SENT-BY="mailto:niccokunz
+ mann@gmail.com":mailto:niccokunzmann+owncloud@gmail.com
+ATTENDEE;RSVP=TRUE;PARTSTAT=NEEDS-ACTION;ROLE=REQ-PARTICIPANT:mailto:my.ma
+ ilbox.calendar+test@gmail.com
+DTSTART;TZID=Europe/Berlin:20190415T030000
+DTEND;TZID=Europe/Berlin:20190415T040000
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR
+
+
+--Boundary_(ID_ryU4ZdJoASiZ+Jo21dCbwA)--
+
+--Boundary_(ID_qyG4ZdjoAsiZ+Jo19dCbWQ)
+Content-type: application/ics; name=invite.ics
+Content-transfer-encoding: 8BIT
+Content-disposition: attachment; filename=invite.ics
+
+BEGIN:VCALENDAR
+PRODID:-//Mozilla.org/NONSGML Mozilla Calendar V1.1//EN
+VERSION:2.0
+METHOD:CANCEL
+BEGIN:VTIMEZONE
+TZID:Europe/Berlin
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;BYDAY=-1SU;BYMONTH=3
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;BYDAY=-1SU;BYMONTH=10
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+CREATED:20190414T233111Z
+LAST-MODIFIED:20190414T233151Z
+DTSTAMP:20190414T233151Z
+UID:ff66b09b-0ed1-4b19-bd4c-347954f27210
+SUMMARY:Event
+ORGANIZER;RSVP=TRUE;PARTSTAT=ACCEPTED;ROLE=CHAIR;SENT-BY="mailto:niccokunz
+ mann@gmail.com":mailto:niccokunzmann+owncloud@gmail.com
+ATTENDEE;RSVP=TRUE;PARTSTAT=NEEDS-ACTION;ROLE=REQ-PARTICIPANT:mailto:my.ma
+ ilbox.calendar+test@gmail.com
+DTSTART;TZID=Europe/Berlin:20190415T030000
+DTEND;TZID=Europe/Berlin:20190415T040000
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR
+
+
+--Boundary_(ID_qyG4ZdjoAsiZ+Jo19dCbWQ)--
+
