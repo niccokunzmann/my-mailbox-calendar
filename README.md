@@ -24,3 +24,16 @@ This service uses an IMAP connection to the mailbox.
 When a request is made, the calendar is filtered for the name of the calendar
 and the e-mails are downloaded.
 Each event e-mail is processed for ICAL-entries.
+
+Tested with:
+
+- Thunderbird
+- Lotus Notes
+
+If you like to have it tested with other applications, 
+
+1. Create an event and invite my.mailbox.calendar+APPLICATION@gmail.com
+2. Edit this event and send the changed - see if it changed.
+3. Delete this event - see if it disappeared.
+4. Open an issue for this application and mention the events you created.
+5. In a pull request, add the sent/received emails and add them to the tests.
