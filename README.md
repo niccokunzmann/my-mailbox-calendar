@@ -18,4 +18,9 @@ There is a free plan.
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
+## How it works
 
+This service uses an IMAP connection to the mailbox.
+When a request is made, the calendar is filtered for the name of the calendar
+and the e-mails are downloaded.
+Each event e-mail is processed for ICAL-entries.
