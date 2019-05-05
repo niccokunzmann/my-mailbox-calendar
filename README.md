@@ -38,6 +38,39 @@ If you like to have it tested with other applications,
 4. Open an issue for this application and mention the events you created.
 5. In a pull request, add the sent/received emails and add them to the tests.
 
+Development
+-----------
+
+This application uses Python3.
+
+1. Get the source code
+    ```shell
+    git clone https://github.com/niccokunzmann/my-mailbox-calendar.git
+    ```
+2. (Optional) Install virtualenv  
+    ```shell
+    pip install virtualenv
+    virtualenv -p python3 ENV
+    source ENV/bin/activate # do this each time you open a new console
+    ```
+3. Install the packages  
+    ```shell
+    python3 -m pip install -r requirements.txt test-requirements.in
+    ```
+4. Run the tests  
+    ```
+    pytest
+    ```
+5. Launch the application  
+    For environment variables and command line arguments, run
+    ```shell
+    python3 app.py --help
+    ```
+    To launch the application with the correct credentials, use
+    ```shell
+    IMAP_HOST=imap.gmail.com:993 IMAP_USER='...@googlemail.com' IMAP_PASSWORD='...' ./app.py --debug
+    ```
+
 Related Projects
 ----------------
 
