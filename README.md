@@ -21,8 +21,8 @@ There is a free plan.
 ## How it works
 
 This service uses an IMAP connection to the mailbox.
-When a request is made, the calendar is filtered for the name of the calendar
-and the e-mails are downloaded.
+When a request is made, the emails are filtered for the name of the calendar
+and are downloaded.
 Each event e-mail is processed for ICAL-entries.
 
 Tested with:
