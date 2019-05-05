@@ -55,7 +55,7 @@ This application uses Python3.
     ```
 3. Install the packages  
     ```shell
-    python3 -m pip install -r requirements.txt test-requirements.in
+    python3 -m pip install -r requirements.txt -r test-requirements.in
     ```
 4. Run the tests  
     ```
