@@ -33,8 +33,8 @@ Tested with:
 If you like to have it tested with other applications, 
 
 1. Create an event and invite my.mailbox.calendar+APPLICATION@gmail.com
-2. Edit this event and send the changed - see if it changed.
-3. Delete this event - see if it disappeared.
+2. Edit this event and send the changes - see if it changed.
+3. Create a new event and delete it - see if it disappeares.
 4. Open an issue for this application and mention the events you created.
 5. In a pull request, add the sent/received emails and add them to the tests.
 
