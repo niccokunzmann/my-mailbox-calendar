@@ -37,3 +37,8 @@ If you like to have it tested with other applications,
 3. Delete this event - see if it disappeared.
 4. Open an issue for this application and mention the events you created.
 5. In a pull request, add the sent/received emails and add them to the tests.
+
+Related Projects
+----------------
+
+- [Open Web Calendar](https://github.com/niccokunzmann/open-web-calendar/)
