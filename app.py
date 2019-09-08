@@ -5,6 +5,9 @@ from flask import Flask, Response, request, redirect
 import mailboxcalendar
 import mailbox_interaction
 
+SOURCE_CODE_ENTRY = "X-SOURCE-CODE"
+SOURCE_CODE_LINK = "https://github.com/niccokunzmann/my-mailbox-calendar/"
+
 # changing the text for a variable here, also change it in the app.json
 @click.command(context_settings={"ignore_unknown_options":True})
 @click.option("--port", envvar="PORT", type=int, default=5000, help="Port to run the web server on.")
@@ -46,6 +49,7 @@ def get_app(port, imap_host, imap_user, imap_password, ssl, debug, check, open_w
             calendar.receive(message)
         icalendar = calendar.as_icalendar()
         icalendar.add("CN", calendar_name)
+        icalendar.add(SOURCE_CODE_ENTRY, SOURCE_CODE_LINK)
         ical = icalendar.to_ical()
         response = Response(
             ical,
