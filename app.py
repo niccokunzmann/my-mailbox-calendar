@@ -1,11 +1,9 @@
 #!/usr/bin/env python3
-
-import imaplib
 import click
 from pprint import pprint
-import email
 from flask import Flask, Response, request, redirect
 import mailboxcalendar
+import mailbox_interaction
 
 # changing the text for a variable here, also change it in the app.json
 @click.command(context_settings={"ignore_unknown_options":True})
@@ -34,41 +32,23 @@ def get_app(port, imap_host, imap_user, imap_password, ssl, debug, check, open_w
     
     IMAP_PASSWORD is the password for the imap_user.
     """
-    connect = (imaplib.IMAP4_SSL if ssl else imaplib.IMAP4)
     imap_port_index = imap_host.rfind(":")
     imap_port = (993 if imap_port_index == -1 else int(imap_host[imap_port_index + 1:]))
     imap_host = (imap_host if imap_port_index == -1 else imap_host[:imap_port_index])
-    def get_messages(calendar_name):
-        """Iterate over the messages for a calendar_name.
-        
-        In my.mailbox.calendar\x40gmail.com this looks for messages to
-        my.mailbox.calendar+calendar_name\x40gmail.com.
-        """
-        M = connect(imap_host, imap_port)
-        M.login(imap_user, imap_password)
-        M.select()
-        assert "\"" not in calendar_name
-        # imap search cen be optimized, see
-        # RFC 3501, Section 6.4.4. http://www.faqs.org/rfcs/rfc3501.html
-        typ, data = M.search(None, 'TO', "\"+" + calendar_name + "@\"")
-        for num in data[0].split():
-            typ, data = M.fetch(num, '(RFC822)')
-            message = email.message_from_bytes(data[0][1])
-            yield message
-        M.close()
-        M.logout()
-    
     app = Flask(__name__, template_folder="templates")
     
     @app.route("/<calendar_name>.ics")
     def get_ical_calendar(calendar_name):
         calendar = mailboxcalendar.MailboxCalendar()
-        for message in get_messages(calendar_name):
+        interaction = mailbox_interaction.MailboxInteraction(calendar_name,
+                imap_host, imap_port, imap_user, imap_password, use_ssl=ssl)
+        for message in interaction.get_messages():
             calendar.receive(message)
         icalendar = calendar.as_icalendar()
         icalendar.add("CN", calendar_name)
+        ical = icalendar.to_ical()
         response = Response(
-            icalendar.to_ical(),
+            ical,
             mimetype=calendar.mime_type)
         response.headers['Access-Control-Allow-Origin'] = '*'
         # see https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSMissingAllowHeaderFromPreflight
