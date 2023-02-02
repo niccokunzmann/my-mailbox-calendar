@@ -26,5 +26,5 @@ pytz==2019.1
     # via icalendar
 six==1.12.0
     # via python-dateutil
-werkzeug==0.15.3
+werkzeug==0.15.5
     # via flask
